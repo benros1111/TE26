@@ -98,7 +98,7 @@ function draw() {
     ctx.textAlign = "center";
     ctx.fillText(state === "won" ? "DU VANN!" : "GAME OVER", canvas.width / 2, canvas.height / 2);
     ctx.font = "20px monospace";
-    ctx.fillText("Tryck R för att spela igen", canvas.width / 2, canvas.height / 2 + 40);
+    ctx.fillText("Tryck R eller på skärmen för att spela igen", canvas.width / 2, canvas.height / 2 + 40);
     ctx.textAlign = "left";
   }
 }

@@ -2,17 +2,32 @@
 <html lang="sv">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#222222">
   <title>TE26 – Plattformsspel</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>TE26 Plattformsspel</h1>
   <canvas id="game" width="800" height="480"></canvas>
+  <p class="rotate">📱 Vänd telefonen på tvären för större bild</p>
   <p class="help">Pilar / A D = gå &nbsp;·&nbsp; Mellanslag / W / Pil upp = hoppa &nbsp;·&nbsp; R = börja om</p>
+
+  <!-- Knappar för mobil. Syns bara på pekskärmar. -->
+  <div id="touch-controls">
+    <div class="pad">
+      <button data-key="left" aria-label="Vänster">◀</button>
+      <button data-key="right" aria-label="Höger">▶</button>
+    </div>
+    <button data-key="jump" class="jump" aria-label="Hoppa">⤒</button>
+  </div>
+
   <script src="js/level.js"></script>
   <script src="js/player.js"></script>
   <script src="js/enemy.js"></script>
   <script src="js/game.js"></script>
+  <script src="js/touch.js"></script>
 </body>
 </html>

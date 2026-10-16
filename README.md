@@ -19,7 +19,7 @@ Det finns redan ett litet spel som fungerar. Er uppgift är att bygga vidare på
 
 4. Öppna <http://localhost:8000> i webbläsaren.
 
-**Styrning:** Pilar / A D = gå · Mellanslag / W / Pil upp = hoppa · R = börja om
+**Styrning:** Pilar / A D = gå · Mellanslag / W / Pil upp = hoppa · R = börja om. På mobil finns knappar på skärmen (koden finns i `js/touch.js`).
 
 ## Så hänger koden ihop
 
@@ -31,6 +31,7 @@ Det finns redan ett litet spel som fungerar. Er uppgift är att bygga vidare på
 | `js/player.js` | Spelaren: rörelse, hopp och gravitation. |
 | `js/enemy.js` | Fienden som går fram och tillbaka. |
 | `js/game.js` | Spelloopen: tangenter, mynt, fiender, poäng, vinst och game over. |
+| `js/touch.js` | Knappar på skärmen för mobil (iOS och Android). |
 
 Banan ritas i `LEVEL_MAP` i `js/level.js`. Varje tecken är en ruta:
 

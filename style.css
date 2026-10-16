@@ -5,15 +5,116 @@ body {
   color: #eee;
   font-family: system-ui, sans-serif;
   text-align: center;
+  /* Stoppa zoom vid dubbeltryck och markering av text på mobil */
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
 }
 
 canvas {
+  display: block;
+  margin: 0 auto;
   background: #6bb5ff;
-  max-width: 100%;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
   image-rendering: pixelated;
   border: 4px solid #000;
+  box-sizing: border-box;
 }
 
 .help {
   opacity: 0.8;
+}
+
+/* ---------- Mobil ---------- */
+
+#touch-controls {
+  display: none;
+}
+
+/* Bara på pekskärmar (telefon och surfplatta) */
+@media (pointer: coarse) {
+  body {
+    padding: 8px;
+    padding-bottom: 150px; /* plats för knapparna */
+    overscroll-behavior: none;
+  }
+
+  .help {
+    display: none;
+  }
+
+  #touch-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 16px max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+    pointer-events: none; /* bara knapparna tar emot tryck */
+  }
+
+  #touch-controls .pad {
+    display: flex;
+    gap: 12px;
+  }
+
+  #touch-controls button {
+    pointer-events: auto;
+    touch-action: none;
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.7);
+    background: rgba(0, 0, 0, 0.45);
+    color: #fff;
+    font-size: 30px;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  #touch-controls button.jump {
+    width: 92px;
+    height: 92px;
+    background: rgba(229, 37, 33, 0.65);
+  }
+
+  #touch-controls button.active {
+    background: rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* Telefon på tvären: låt spelet fylla skärmen, knapparna ligger ovanpå */
+@media (orientation: landscape) and (max-height: 600px) {
+  body {
+    padding: 0;
+  }
+
+  h1,
+  .help {
+    display: none;
+  }
+
+  canvas {
+    width: auto;
+    max-width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    border: none;
+  }
+}
+
+/* Tips om att vända telefonen. Syns bara på pekskärm när den står upp. */
+.rotate {
+  display: none;
+  opacity: 0.8;
+}
+
+@media (pointer: coarse) and (orientation: portrait) {
+  .rotate {
+    display: block;
+  }
 }
