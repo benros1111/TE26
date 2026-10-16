@@ -5,6 +5,8 @@ Spelet är skrivet i vanlig **HTML, CSS och JavaScript** med `<canvas>`. Inga ra
 
 Det finns redan ett litet spel som fungerar. Er uppgift är att bygga vidare på det.
 
+🎮 **Spela startversionen:** <https://te26.netlify.app>
+
 ## Kom igång
 
 1. Klicka på **Fork** uppe till höger (eller klona repot).
