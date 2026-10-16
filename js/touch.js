@@ -5,9 +5,10 @@ document.querySelectorAll("#touch-controls button").forEach(button => {
 
   const press = e => {
     e.preventDefault();
+    startAudio();
     keys[key] = true;
     button.classList.add("active");
-    if (state !== "playing") reset();
+    if (state === "gameover" || state === "won") newGame();
   };
   const release = e => {
     e.preventDefault();
@@ -19,10 +20,19 @@ document.querySelectorAll("#touch-controls button").forEach(button => {
   button.addEventListener("pointerup", release);
   button.addEventListener("pointercancel", release);
   button.addEventListener("pointerleave", release);
-  button.addEventListener("contextmenu", e => e.preventDefault()); // inget långtrycks-meny
+  button.addEventListener("contextmenu", e => e.preventDefault()); // ingen långtrycks-meny
 });
 
-// Tryck på spelet för att börja om efter game over / vinst.
+// Tryck på spelet för att starta ljudet, eller börja om efter game over / vinst.
 canvas.addEventListener("pointerdown", () => {
-  if (state !== "playing") reset();
+  startAudio();
+  if (state === "gameover" || state === "won") newGame();
+});
+
+// Knapp för att stänga av och sätta på ljudet
+const muteButton = document.getElementById("mute");
+muteButton.textContent = muted ? "🔇" : "🔊";
+muteButton.addEventListener("click", () => {
+  startAudio();
+  pressMute();
 });
