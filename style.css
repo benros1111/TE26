@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  padding: 16px;
+  background: #222;
+  color: #eee;
+  font-family: system-ui, sans-serif;
+  text-align: center;
+}
+
+canvas {
+  background: #6bb5ff;
+  max-width: 100%;
+  image-rendering: pixelated;
+  border: 4px solid #000;
+}
+
+.help {
+  opacity: 0.8;
+}
